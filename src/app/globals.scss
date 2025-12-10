@@ -1,0 +1,104 @@
+// Premium Design Tokens
+:root {
+  /* HSL Colors for better manipulation */
+  --primary-hue: 220;
+  /* Deep Blue */
+  --secondary-hue: 260;
+  /* Purple/Indigo */
+
+  --primary-color: hsl(var(--primary-hue), 80%, 50%);
+  /* #1a73e8 */
+  --primary-dark: hsl(var(--primary-hue), 80%, 40%);
+  --secondary-color: hsl(var(--secondary-hue), 70%, 60%);
+
+  --background-light: #f8f9fa;
+  --background-dark: #121212;
+  --surface-light: #ffffff;
+  --surface-dark: #1e1e1e;
+
+  --text-main-light: #202124;
+  --text-sub-light: #5f6368;
+  --text-main-dark: #e8eaed;
+  --text-sub-dark: #9aa0a6;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+
+  /* Effects */
+  --shadow-sm: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.3);
+  --glass-blur: blur(12px);
+
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+}
+
+[data-theme='dark'] {
+  --background-color: var(--background-dark);
+  --card-background: var(--surface-dark);
+  --text-color: var(--text-main-dark);
+  --text-light: var(--text-sub-dark);
+  --glass-bg: rgba(30, 30, 30, 0.8);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  /* App-like feel */
+}
+
+body {
+  background-color: var(--background-light);
+  color: var(--text-main-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Utilities */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
