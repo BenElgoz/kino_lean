@@ -1,0 +1,113 @@
+.chatbotContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card-background);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  /* Assuming you might add this later or use lg */
+
+  @media (min-width: 768px) {
+    height: 90vh;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+.chatbotHeader {
+  flex-shrink: 0;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-bottom: 1px solid var(--border-color);
+  /* You might need to add this var or use rgba */
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  z-index: 10;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+  h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+  }
+}
+
+.chatbotMessages {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  scroll-behavior: smooth;
+
+  /* Scrollbar styling */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {}
+}
+
+.loadingInitial {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.loadingIndicator {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  color: var(--text-light);
+  font-style: italic;
+
+  span::after {
+    content: '...';
+    animation: dots 1.5s infinite;
+  }
+}
+
+@keyframes dots {
+
+  0%,
+  20% {
+    content: '.';
+  }
+
+  40% {
+    content: '..';
+  }
+
+  60%,
+  100% {
+    content: '...';
+  }
+}
+
+@media (max-width: 768px) {
+  .chatbotContainer {
+    height: 100vh;
+    max-height: none;
+    border-radius: 0;
+  }
+}
