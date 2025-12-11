@@ -106,9 +106,15 @@ export default function LandingPage() {
             </p>
           </div>
         </div>
+        
+        {/* Wave Separator */}
+        <div className={styles.waveSeparator}>
+          <svg preserveAspectRatio="none" viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#EEF4FE" fillOpacity="1" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,42.7C1120,32,1280,32,1360,32L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+          </svg>
+        </div>
       </section>
 
-      {/* COMING SOON SECTION */}
       {/* COMING SOON SECTION */}
       <section id="roadmap" className={styles.comingSoonSection}>
         <h2>Prochainement</h2>
@@ -135,6 +141,14 @@ export default function LandingPage() {
       {/* FOOTER */}
       <footer className={styles.footer}>
         <div className={styles.footerContent}>
+          <div className={styles.links}>
+            <a href="#home">Accueil</a>
+            <a href="#why">Pourquoi Kino ?</a>
+            <a href="#roadmap">Prochainement</a>
+            <a href="#">Mentions légales</a>
+            <a href="#">Politique de confidentialité</a>
+          </div>
+
           <div className={styles.leftSide}>
             <Image
               src="/images/kino-logo.svg"
@@ -142,21 +156,13 @@ export default function LandingPage() {
               width={100}
               height={40}
               className={styles.footerLogo}
-              style={{ filter: 'brightness(100)' }} // Ensure visibility on dark bg if needed
+              style={{ filter: 'brightness(100)' }}
             />
             <div className={styles.address}>
               <p>40 Rue du Chemin Vert<br />75011, Paris</p>
               <p><a href="mailto:contact@kino.fr">contact@kino.fr</a></p>
               <p>01 64 56 74 97</p>
             </div>
-          </div>
-
-          <div className={styles.links}>
-            <a href="#home">Accueil</a>
-            <a href="#why">Pourquoi Kino ?</a>
-            <a href="#roadmap">Prochainement</a>
-            <a href="#">Mentions légales</a>
-            <a href="#">Politique de confidentialité</a>
           </div>
         </div>
         <div className={styles.copyright}>
