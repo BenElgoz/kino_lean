@@ -16,7 +16,7 @@ export const ChatMessage: React.FC<Props> = ({ message }) => {
       <div className={`${styles.messageBubble} ${isUser ? styles.user : styles.assistant}`}>
 
         <div className={styles.senderName}>
-          {isUser ? 'Vous' : 'Assistant'}
+          {isUser ? 'Vous' : 'K.I.N.O'}
         </div>
 
         <div className={styles.messageContent}>
@@ -37,7 +37,7 @@ export const ChatMessage: React.FC<Props> = ({ message }) => {
               fontWeight: 600
             }}
           >
-            👉 Cliquez ici pour ouvrir le fichier Google Drive
+            👉 Cliquez ici pour ouvrir votre fichier Google Drive
           </a>
         )}
 
