@@ -94,12 +94,37 @@ export const ChatBot: React.FC = () => {
   if (!isMounted) return null;
 
   return (
-    <div className={styles.chatbotContainer}>
-      <header className={styles.chatbotHeader}>
-        <h1>K.I.N.O Search</h1>
-        <p>Recherche intelligente de fichiers</p>
-      </header>
+  <div className={styles.chatbotContainer}>
+    {/* Sidebar */}
+    <aside className={styles.sidebar}>
+      <div className={styles.logo}>kino</div>
+      
+      <nav className={styles.sidebarLinks}>
+        <a href="#">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          Nouvelle discussion
+        </a>
+        <a href="#">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+            <polyline points="13 2 13 9 20 9"/>
+          </svg>
+          Fichiers récents
+        </a>
+        <a href="#">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          Historique conversations
+        </a>
+      </nav>
+    </aside>
 
+    {/* Main Chat Area */}
+    <div className={styles.mainChat}>
       <div className={styles.chatbotMessages}>
         {messages.map(message => (
           <ChatMessage key={message.id} message={message} />
@@ -107,7 +132,7 @@ export const ChatBot: React.FC = () => {
 
         {isLoading && (
           <div className={styles.loadingIndicator}>
-            <span>Kino recherche vos fichiers...</span>
+            <span>Kino recherche vos fichiers</span>
           </div>
         )}
         <div ref={messagesEndRef} />
@@ -115,5 +140,6 @@ export const ChatBot: React.FC = () => {
 
       <ChatInput onSend={handleSendMessage} disabled={isLoading} />
     </div>
-  );
+  </div>
+);
 };

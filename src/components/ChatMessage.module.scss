@@ -1,6 +1,7 @@
 .messageWrapper {
   display: flex;
   width: 100%;
+  animation: fadeIn 0.3s ease;
 
   &.user {
     justify-content: flex-end;
@@ -11,91 +12,74 @@
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .messageBubble {
-  max-width: 80%;
-  padding: var(--spacing-md) var(--spacing-lg);
-  border-radius: var(--radius-lg);
-  font-size: 1rem;
+  max-width: 60%;
+  padding: 20px 24px;
+  border-radius: 24px;
+  font-size: 15px;
   line-height: 1.5;
   position: relative;
-  box-shadow: var(--shadow-sm);
 
   &.user {
-    background: var(--primary-color);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     color: white;
-    border-bottom-right-radius: var(--spacing-xs);
+    border-bottom-right-radius: 8px;
   }
 
   &.assistant {
-    background: var(--surface-light);
-    color: var(--text-main-light);
-    border-bottom-left-radius: var(--spacing-xs);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-
-    [data-theme='dark'] & {
-      background: var(--surface-dark);
-      color: var(--text-main-dark);
-      border-color: rgba(255, 255, 255, 0.1);
-    }
-  }
-
-  &.error {
-    background: #fee2e2;
-    /* light red */
-    color: #b91c1c;
-    /* dark red */
-    border: 1px solid #fecaca;
+    background: #011944;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+    border-bottom-left-radius: 8px;
   }
 }
 
 .senderName {
-  font-size: 0.75rem;
-  margin-bottom: var(--spacing-xs);
-  opacity: 0.8;
-  font-weight: 600;
+  color: #0059FF;
 }
 
-.fileAttachment {
-  margin-top: var(--spacing-md);
-  padding: var(--spacing-sm) var(--spacing-md);
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: var(--radius-md);
-  display: flex;
+.messageContent {
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.fileLink {
+  margin-top: 12px;
+  display: inline-flex;
   align-items: center;
-  gap: var(--spacing-sm);
-  cursor: pointer;
-  transition: background 0.2s;
+  gap: 8px;
+  color: #A9CCFF;
   text-decoration: none;
-  color: inherit;
   font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+  padding: 8px 16px;
+  background: rgba(169, 204, 255, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(169, 204, 255, 0.2);
+  transition: all 0.2s;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.3);
-  }
-
-  .assistant & {
-    background: rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.1);
-
-    &:hover {
-      background: rgba(0, 0, 0, 0.1);
-    }
-
-    [data-theme='dark'] & {
-      background: rgba(255, 255, 255, 0.1);
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.15);
-      }
-    }
+    background: rgba(169, 204, 255, 0.15);
+    border-color: rgba(169, 204, 255, 0.3);
   }
 }
 
 .timestamp {
-  font-size: 0.7rem;
-  opacity: 0.6;
-  margin-top: var(--spacing-xs);
-  text-align: right;
+  font-size: 11px;
+  opacity: 0.5;
+  margin-top: 8px;
   display: block;
+  text-align: right;
 }

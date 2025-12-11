@@ -109,6 +109,7 @@ export default function LandingPage() {
       </section>
 
       {/* COMING SOON SECTION */}
+      {/* COMING SOON SECTION */}
       <section id="roadmap" className={styles.comingSoonSection}>
         <h2>Prochainement</h2>
 
@@ -122,15 +123,46 @@ export default function LandingPage() {
           <div className={styles.roadmapCard}>
             <h3>Réorganisation<br />des dossiers</h3>
           </div>
-          {/* Wide card for Documents Recognition */}
-          <div className={`${styles.roadmapCard} ${styles.wide}`} style={{ gridRow: 'span 2' }}>
-            <h3>Reconnaissance<br />des documents</h3>
-          </div>
-          <div className={`${styles.roadmapCard} ${styles.wide}`} style={{ gridColumn: 'span 2' }}>
+          <div className={`${styles.roadmapCard} ${styles.wide}`}>
             <h3>Changement de nomenclature<br />automatique</h3>
+          </div>
+          <div className={styles.roadmapCard}>
+            <h3>Reconnaissance<br />des documents</h3>
           </div>
         </div>
       </section>
+
+      {/* FOOTER */}
+      <footer className={styles.footer}>
+        <div className={styles.footerContent}>
+          <div className={styles.leftSide}>
+            <Image
+              src="/images/kino-logo.svg"
+              alt="Kino Logo"
+              width={100}
+              height={40}
+              className={styles.footerLogo}
+              style={{ filter: 'brightness(100)' }} // Ensure visibility on dark bg if needed
+            />
+            <div className={styles.address}>
+              <p>40 Rue du Chemin Vert<br />75011, Paris</p>
+              <p><a href="mailto:contact@kino.fr">contact@kino.fr</a></p>
+              <p>01 64 56 74 97</p>
+            </div>
+          </div>
+
+          <div className={styles.links}>
+            <a href="#home">Accueil</a>
+            <a href="#why">Pourquoi Kino ?</a>
+            <a href="#roadmap">Prochainement</a>
+            <a href="#">Mentions légales</a>
+            <a href="#">Politique de confidentialité</a>
+          </div>
+        </div>
+        <div className={styles.copyright}>
+            © 2025 Kino. Tous droits réservés.
+        </div>
+      </footer>
     </main>
   );
 }
