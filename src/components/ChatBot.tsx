@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { ChatMessage as ChatMessageType } from '@/types';
 import { ChatMessage } from './ChatMessage';
 import { ChatInput } from './ChatInput';
@@ -11,6 +12,8 @@ export const ChatBot: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessageType[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const searchParams = useSearchParams();
+  const initialQueryProcessed = useRef(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -24,6 +27,16 @@ export const ChatBot: React.FC = () => {
       },
     ]);
   }, []);
+
+  useEffect(() => {
+    if (isMounted && !initialQueryProcessed.current) {
+      const query = searchParams.get('q');
+      if (query) {
+        initialQueryProcessed.current = true;
+        handleSendMessage(query);
+      }
+    }
+  }, [isMounted, searchParams]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });

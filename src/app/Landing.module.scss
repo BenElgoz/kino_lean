@@ -1,0 +1,230 @@
+.landingContainer {
+    background-color: #020D23;
+    min-height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(1, 25, 68, 0.9); // #011944 with opacity
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    transition: all 0.3s ease;
+
+    a {
+        color: #A9CCFF;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        font-family: var(--font-poppins);
+        transition: color 0.2s;
+
+        &:hover {
+            color: white;
+        }
+    }
+}
+
+.heroSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 2rem 4rem;
+    /* Increased top padding for navbar */
+    text-align: center;
+    position: relative;
+
+    /* Revised Gradient: Wide and shorter height */
+    background: radial-gradient(ellipse 60% 80% at 50% 100%, #0059FF 0%, transparent 100%);
+    background-size: 100% 80%;
+    /* Limits height visually */
+    background-repeat: no-repeat;
+    background-position: bottom;
+    min-height: 85vh;
+
+    .logo {
+        width: 250px;
+        margin-bottom: 2rem;
+    }
+
+    h1 {
+        font-family: var(--font-bowlby);
+        font-size: 32px;
+        margin-bottom: 3rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.searchWrapper {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+
+    input {
+        width: 100%;
+        padding: 1.2rem 2rem;
+        border-radius: 50px;
+        border: none;
+        font-family: var(--font-poppins);
+        font-size: 16px;
+        background: #EEF4FE;
+        color: #011944;
+        padding-right: 4rem;
+        box-shadow: 0 8px 30px rgba(0, 89, 255, 0.2);
+        transition: all 0.3s ease;
+
+        &:focus {
+            outline: 2px solid #0059FF;
+            box-shadow: 0 8px 40px rgba(0, 89, 255, 0.4);
+        }
+    }
+
+    button {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: black;
+        border: none;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: transform 0.2s;
+
+        &:hover {
+            transform: translateY(-50%) scale(1.1);
+        }
+    }
+}
+
+.whySection {
+    background: #020D23;
+    padding: 0 2rem 4rem;
+    /* Removed top padding to let separator sit flush if needed */
+    text-align: center;
+    position: relative;
+
+    .separatorLine {
+        width: 100vw;
+        max-width: none;
+        height: auto;
+        margin-left: calc(-50vw + 50%);
+        /* Force full viewport width ignoring parent padding */
+        margin-right: calc(-50vw + 50%);
+        margin-top: -80px;
+        /* Pull it up to overlap hero slightly */
+        margin-bottom: 3rem;
+        display: block;
+        opacity: 1;
+        object-fit: cover;
+    }
+
+    h2 {
+        font-family: var(--font-bowlby);
+        font-size: 28px;
+        margin-bottom: 2rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .featuresGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 3rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .featureCard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+
+        img {
+            width: 64px;
+            height: 64px;
+        }
+
+        h3 {
+            font-family: var(--font-bowlby);
+            font-size: 20px;
+            line-height: 1.3;
+        }
+
+        p {
+            font-family: var(--font-poppins);
+            font-size: 14px;
+            line-height: 1.6;
+            color: #A9CCFF;
+            max-width: 300px;
+        }
+    }
+}
+
+.comingSoonSection {
+    background: #EEF4FE;
+    color: #011944;
+    padding: 4rem 2rem;
+    text-align: center;
+    border-top-left-radius: 50% 50px;
+    border-top-right-radius: 50% 50px;
+    position: relative;
+    top: -40px; // Overlap effect
+
+    h2 {
+        font-family: var(--font-bowlby);
+        font-size: 28px;
+        margin-bottom: 3rem;
+    }
+
+    .roadmapGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .roadmapCard {
+        background: #0059FF;
+        color: white;
+        padding: 2rem;
+        border-radius: 12px;
+        min-height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(0, 89, 255, 0.2);
+
+        &.wide {
+            grid-column: span 1;
+
+            @media (min-width: 768px) {
+                grid-column: span 1;
+            }
+        }
+
+        h3 {
+            font-family: var(--font-bowlby);
+            font-size: 18px;
+            line-height: 1.3;
+        }
+    }
+}
