@@ -26,13 +26,14 @@ export const ChatInput: React.FC<Props> = ({ onSend, disabled }) => {
   };
 
   return (
-    <div className={styles.inputContainer}>
+  <div className={styles.inputContainer}>
+    <div className={styles.inputWrapper}>
       <textarea
         className={styles.inputField}
         value={input}
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={handleKeyDown}
-        placeholder="Décrivez le fichier que vous cherchez..."
+        placeholder="En quoi puis-je vous aider ?"
         disabled={disabled}
         rows={1}
       />
@@ -47,5 +48,7 @@ export const ChatInput: React.FC<Props> = ({ onSend, disabled }) => {
         </svg>
       </button>
     </div>
-  );
+  </div>
+);
+
 };

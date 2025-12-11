@@ -1,65 +1,74 @@
 .inputContainer {
-  padding: var(--spacing-lg);
-  background: var(--surface-light);
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 32px 64px 48px;
+  background: transparent;
   display: flex;
-  gap: var(--spacing-md);
-  align-items: flex-end;
+  gap: 16px;
+  align-items: center;
+  position: relative;
+}
 
-  [data-theme='dark'] & {
-    background: var(--surface-dark);
-    border-color: rgba(255, 255, 255, 0.1);
+.inputWrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 32px;
+  padding: 4px 4px 4px 24px;
+  transition: border-color 0.2s;
+
+  &:focus-within {
+    border-color: rgba(255, 255, 255, 0.4);
   }
 }
 
 .inputField {
   flex: 1;
-  padding: var(--spacing-md) var(--spacing-lg);
-  border-radius: var(--radius-full);
-  border: 1px solid transparent;
-  background: var(--background-light);
-  font-size: 1rem;
-  color: var(--text-main-light);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: all 0.2s ease;
-  resize: none;
-  min-height: 56px;
-  max-height: 120px;
+  padding: 14px 0;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  color: white;
   font-family: inherit;
+  resize: none;
+  outline: none;
+  min-height: 24px;
+  max-height: 120px;
 
-  &:focus {
-    outline: none;
-    background: var(--surface-light);
-    box-shadow: 0 0 0 2px var(--primary-color);
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.4);
   }
 
-  [data-theme='dark'] & {
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--text-main-dark);
-
-    &:focus {
-      background: rgba(0, 0, 0, 0.2);
-    }
+  &:disabled {
+    opacity: 0.5;
   }
 }
 
 .sendButton {
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: none;
-  background: var(--primary-color);
-  color: white;
+  background: white;
+  color: #020D23;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: var(--shadow-md);
+  transition: all 0.2s;
+  flex-shrink: 0;
+  padding: 0;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
 
   &:hover:not(:disabled) {
-    transform: scale(1.1);
-    background: var(--primary-dark);
+    transform: scale(1.05);
+    background: #f0f0f0;
   }
 
   &:active:not(:disabled) {
@@ -67,7 +76,13 @@
   }
 
   &:disabled {
-    opacity: 0.5;
+    opacity: 0.4;
     cursor: not-allowed;
+  }
+}
+
+@media (max-width: 768px) {
+  .inputContainer {
+    padding: 16px;
   }
 }
