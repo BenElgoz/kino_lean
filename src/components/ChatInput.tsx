@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, KeyboardEvent } from 'react';
+import Image from 'next/image';
 import styles from './ChatInput.module.scss';
 
 interface Props {
@@ -26,29 +27,33 @@ export const ChatInput: React.FC<Props> = ({ onSend, disabled }) => {
   };
 
   return (
-  <div className={styles.inputContainer}>
-    <div className={styles.inputWrapper}>
-      <textarea
-        className={styles.inputField}
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder="En quoi puis-je vous aider ?"
-        disabled={disabled}
-        rows={1}
-      />
-      <button
-        className={styles.sendButton}
-        onClick={handleSend}
-        disabled={!input.trim() || disabled}
-        aria-label="Envoyer"
-      >
-        <svg viewBox="0 0 24 24">
-          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-        </svg>
-      </button>
+    <div className={styles.inputContainer}>
+      <div className={styles.inputWrapper}>
+        <textarea
+          className={styles.inputField}
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={handleKeyDown}
+          placeholder="Quel fichier recherchez-vous ?"
+          disabled={disabled}
+          rows={1}
+        />
+        <button
+          className={styles.sendButton}
+          onClick={handleSend}
+          disabled={!input.trim() || disabled}
+          aria-label="Envoyer"
+        >
+          <Image
+            src="/images/kino-picto-gris.svg"
+            alt="Envoyer"
+            width={24}
+            height={24}
+            style={{ width: '24px', height: 'auto' }}
+          />
+        </button>
+      </div>
     </div>
-  </div>
-);
+  );
 
 };

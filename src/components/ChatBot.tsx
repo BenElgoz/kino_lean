@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Image from 'next/image';
 import { ChatMessage as ChatMessageType } from '@/types';
 import { ChatMessage } from './ChatMessage';
 import { ChatInput } from './ChatInput';
@@ -94,52 +95,56 @@ export const ChatBot: React.FC = () => {
   if (!isMounted) return null;
 
   return (
-  <div className={styles.chatbotContainer}>
-    {/* Sidebar */}
-    <aside className={styles.sidebar}>
-      <div className={styles.logo}>kino</div>
-      
-      <nav className={styles.sidebarLinks}>
-        <a href="#">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-          </svg>
-          Nouvelle discussion
-        </a>
-        <a href="#">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
-            <polyline points="13 2 13 9 20 9"/>
-          </svg>
-          Fichiers récents
-        </a>
-        <a href="#">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-          </svg>
-          Historique conversations
-        </a>
-      </nav>
-    </aside>
+    <div className={styles.chatbotContainer}>
+      {/* Sidebar */}
+      <aside className={styles.sidebar}>
+        <div className={styles.logo}>
+          <a href="/">
+            <Image src="/images/kino-logo.svg" alt="Kino Logo" width={100} height={40} />
+          </a>
+        </div>
 
-    {/* Main Chat Area */}
-    <div className={styles.mainChat}>
-      <div className={styles.chatbotMessages}>
-        {messages.map(message => (
-          <ChatMessage key={message.id} message={message} />
-        ))}
+        <nav className={styles.sidebarLinks}>
+          <a href="#">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+            Nouvelle discussion
+          </a>
+          <a href="#">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+              <polyline points="13 2 13 9 20 9" />
+            </svg>
+            Fichiers récents
+          </a>
+          <a href="#">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            Historique conversations
+          </a>
+        </nav>
+      </aside>
 
-        {isLoading && (
-          <div className={styles.loadingIndicator}>
-            <span>Kino recherche vos fichiers</span>
-          </div>
-        )}
-        <div ref={messagesEndRef} />
+      {/* Main Chat Area */}
+      <div className={styles.mainChat}>
+        <div className={styles.chatbotMessages}>
+          {messages.map(message => (
+            <ChatMessage key={message.id} message={message} />
+          ))}
+
+          {isLoading && (
+            <div className={styles.loadingIndicator}>
+              <span>Kino recherche vos fichiers</span>
+            </div>
+          )}
+          <div ref={messagesEndRef} />
+        </div>
+
+        <ChatInput onSend={handleSendMessage} disabled={isLoading} />
       </div>
-
-      <ChatInput onSend={handleSendMessage} disabled={isLoading} />
     </div>
-  </div>
-);
+  );
 };

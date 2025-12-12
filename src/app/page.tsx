@@ -56,7 +56,7 @@ export default function LandingPage() {
         <form onSubmit={handleSearch} className={styles.searchWrapper}>
           <input
             type="text"
-            placeholder="En quoi puis-je vous aider ?"
+            placeholder="Quel fichier recherchez-vous ?"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
@@ -106,7 +106,7 @@ export default function LandingPage() {
             </p>
           </div>
         </div>
-        
+
         {/* Wave Separator */}
         <div className={styles.waveSeparator}>
           <svg preserveAspectRatio="none" viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg">
@@ -121,19 +121,19 @@ export default function LandingPage() {
 
         <div className={styles.roadmapGrid}>
           <div className={styles.roadmapCard}>
-            <h3>Fusions des<br />dossiers</h3>
+            <h3>SSO &<br />Authentification</h3>
           </div>
           <div className={styles.roadmapCard}>
-            <h3>Synthèse<br />vocale</h3>
+            <h3>Extension<br />Chrome</h3>
           </div>
           <div className={styles.roadmapCard}>
-            <h3>Réorganisation<br />des dossiers</h3>
+            <h3>Commande<br />vocale</h3>
           </div>
           <div className={`${styles.roadmapCard} ${styles.wide}`}>
-            <h3>Changement de nomenclature<br />automatique</h3>
+            <h3>Upload de fichiers<br />et rangement automatique</h3>
           </div>
           <div className={styles.roadmapCard}>
-            <h3>Reconnaissance<br />des documents</h3>
+            <h3>Ajout de nouveaux<br />services drive</h3>
           </div>
         </div>
       </section>
@@ -150,14 +150,15 @@ export default function LandingPage() {
           </div>
 
           <div className={styles.leftSide}>
-            <Image
-              src="/images/kino-logo.svg"
-              alt="Kino Logo"
-              width={100}
-              height={40}
-              className={styles.footerLogo}
-              style={{ filter: 'brightness(100)' }}
-            />
+            <a href="#">
+              <Image
+                src="/images/kino-logo.svg"
+                alt="Kino Logo"
+                width={100}
+                height={40}
+                className={styles.footerLogo}
+                style={{ filter: 'brightness(100)' }}
+              /></a>
             <div className={styles.address}>
               <p>40 Rue du Chemin Vert<br />75011, Paris</p>
               <p><a href="mailto:contact@kino.fr">contact@kino.fr</a></p>
@@ -166,7 +167,7 @@ export default function LandingPage() {
           </div>
         </div>
         <div className={styles.copyright}>
-            © 2025 Kino. Tous droits réservés.
+          © 2025 Kino. Tous droits réservés.
         </div>
       </footer>
     </main>
